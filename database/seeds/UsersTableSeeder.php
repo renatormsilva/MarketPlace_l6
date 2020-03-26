@@ -20,7 +20,9 @@ class UsersTableSeeder extends Seeder
         //         'remember_token' => 'oioioi',
         //     ]
         // );
-
-        factory(\App\User::class, 40)->create();
+            // metodo save trabalha com objetos
+        factory(\App\User::class, 40)->create()->each(function(){
+            $user->store()->save(factory(\App\Store::class)->make());
+        });
     }
 }
