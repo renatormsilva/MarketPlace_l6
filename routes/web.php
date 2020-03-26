@@ -32,13 +32,55 @@ Route::get('/model', function(){
     // dd($user->store()->count()); // O objeto único (STORE)  se for colletion de dados(Objetos)
 
     // pegar os produtos de uma loja?
-    $loja = \App\Store::find(1);
+    //$loja = \App\Store::find(1);
      // return $loja->products; | $loja->products()->where('id', 9)->get();
 
      // pegar as lojas de uma categoria de uma loja
     // $categoria = \App\category::find(1);
     // $categoria->products;
-    return \App\User::all();  
+    //return \App\User::all();  
+
+    // Criar um loja para um usuario
+    // $user = \App\User::find(10);
+    // $store = $user->store()->create([
+    //     'name' => 'Loja teste',
+    //     'description' => 'Loja teste de produtos importados',
+    //     'mobile_phone' => 'xx-xxxx-xxxx',
+    //     'phone' => 'xx-xxx-xxxx',
+    //     'slug' => 'oja-teste',
+    // ]);
+
+    // criar um produto para uma loja
+
+    // $store = \App\Store::find(41);
+    // $product = $store->products()->create([
+    //     'name' => 'Macbook Pro',
+    //     'description' => 'NOtebook Pro novo - brabo',
+    //     'body' =>'naruto ao som de...',
+    //     'price' => 2000.99,
+    //     'slug' => 'macbook-pro',
+    // ]);
+
+    // Criar uma categoria 
+    // \App\Category::create([
+    //     'name' => 'Games',
+    //     'decription' => 'null',
+    //     'slug' => 'games'
+    // ]);
+    
+    // \App\Category::create([
+    //     'name' => 'Notebooks',
+    //     'decription' => 'null',
+    //     'slug' => 'notebooks'
+    
+    // ]);
+
+    // return \App\Category::all();
+
+    // adicionar um produto a uma categoria ou vice-versa
+
+    $product = \App\Product::find(41);
+    dd($product->categories()->sync([1,2]));
 
 });
 
