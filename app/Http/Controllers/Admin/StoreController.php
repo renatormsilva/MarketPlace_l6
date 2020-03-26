@@ -45,4 +45,12 @@ class StoreController extends Controller
         $store->update($data);
         return $data;
     }
+
+    public function destroy($store)
+    {
+        $store = \App\Store::find($store);
+        $store->delete();
+
+        return redirect('/admin/stores');
+    }
 }
