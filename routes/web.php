@@ -20,12 +20,25 @@ Route::get('/model', function(){
     //     'email' => 'renatinhosenpai@gamil.com',
     //     'password' => bcrypt('12345')
     // ]);
-    $user = \App\User::find(41);
-    $user->update([
-        'name' => 'novo nome com update'
-    ]);
-    dd($user);
-     return \App\User::all();  
+    // $user = \App\User::find(41);
+    // $user->update([
+    //     'name' => 'novo nome com update'
+    // ]);
+    // dd($user);
+
+    // pegar uma loja de um usuário
+    // $user = \App\User::find(4);
+
+    // dd($user->store()->count()); // O objeto único (STORE)  se for colletion de dados(Objetos)
+
+    // pegar os produtos de uma loja?
+    $loja = \App\Store::find(1);
+     // return $loja->products; | $loja->products()->where('id', 9)->get();
+
+     // pegar as lojas de uma categoria de uma loja
+    // $categoria = \App\category::find(1);
+    // $categoria->products;
+    return \App\User::all();  
 
 });
 
