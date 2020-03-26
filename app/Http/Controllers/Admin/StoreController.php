@@ -9,7 +9,7 @@ class StoreController extends Controller
 {
     public function index()
     {
-        $stores = \App\Store::all();
-        return $stores;
+        $stores = \App\Store::paginate(10);
+        return view('admin.stores.index', compact('stores'));
     }
 }
