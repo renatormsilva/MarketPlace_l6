@@ -21,7 +21,8 @@ class UsersTableSeeder extends Seeder
         //     ]
         // );
             // metodo save trabalha com objetos
-        factory(\App\User::class, 40)->create()->each(function(){
+            // criando 40 users pra cada um uma loja
+        factory(\App\User::class, 40)->create()->each(function($user){
             $user->store()->save(factory(\App\Store::class)->make());
         });
     }
