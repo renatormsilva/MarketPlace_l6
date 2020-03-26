@@ -10,6 +10,10 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', function () {
+    return view('welcome');
+});
+
 
 Route::get('/model', function(){
      // $productList = \App\Product::all(); // select * from products
@@ -84,6 +88,5 @@ Route::get('/model', function(){
 
 });
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/admin/stores', 'Admin\\StoreController@index');
+
